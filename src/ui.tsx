@@ -7,7 +7,6 @@ import {
 import { emit, on } from "@create-figma-plugin/utilities";
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
-import Editor from "@monaco-editor/react";
 import {
    generateCssColorVariableName,
    getFirstModeKey,
@@ -872,14 +871,6 @@ function Plugin() {
       return on("SET_VARIABLES", handleSetVariables);
    }, []);
 
-   const editorOptions = {
-      minimap: { enabled: false },
-      fontSize: 12,
-      formatOnPaste: true,
-      formatOnType: true,
-      scrollBeyondLastLine: false,
-   } as const;
-
    return (
       <Container space="medium">
          <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
@@ -895,12 +886,21 @@ function Plugin() {
          </div>
          <VerticalSpace space="small" />
          <div style={{ height: "600px", border: "1px solid #ccc" }}>
-            <Editor
-               height="100%"
-               defaultLanguage={activeTab}
+            <textarea
+               readOnly
                value={activeTab === 'css' ? output.css : output.js}
-               options={editorOptions}
-               theme="vs-dark"
+               style={{
+                  width: "100%",
+                  height: "100%",
+                  padding: "12px",
+                  fontFamily: "monospace",
+                  fontSize: "12px",
+                  backgroundColor: "#1e1e1e",
+                  color: "#d4d4d4",
+                  border: "none",
+                  resize: "none",
+                  outline: "none"
+               }}
             />
          </div>
       </Container>
