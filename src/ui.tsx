@@ -924,14 +924,6 @@ function Plugin() {
          </div>
          <VerticalSpace space="small" />
          <div style={{ height: "600px", border: "1px solid #ccc", display: "flex", flexDirection: "column" }}>
-            {/* <div style={{
-               padding: "8px 12px",
-               borderBottom: "1px solid #ccc",
-               fontSize: "12px",
-               color: "#888"
-            }}>
-               Preview (file will download automatically)
-            </div> */}
             <textarea
                readOnly
                value={output.css}
