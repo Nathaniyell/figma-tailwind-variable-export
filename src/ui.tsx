@@ -917,7 +917,7 @@ function Plugin() {
 
    return (
       <Container space="medium">
-         <div style={{ marginBottom: "8px", marginTop: "8px" }}>
+         <div style={{ marginBottom: "4px", marginTop: "10px" }}>
             <Button fullWidth onClick={() => emit("GET_VARIABLES")}>
                Export Variables
             </Button>
